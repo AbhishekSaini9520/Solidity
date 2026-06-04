@@ -6,5 +6,13 @@
         "file": "helloworld.sol"
       }
     }
+  },
+  "dealing_with_function.sol": {
+    "__sources__": {
+      "dealing_with_function.sol": {
+        "content": "// SPDX-License-Identifier: MIT\r\npragma solidity ^0.8.26;\r\n\r\ncontract MyFabouriteNumber {\r\n    uint public mynumber = 10;\r\n    string public mystatus = \"null\";\r\n    function setMyNumber(uint _mynumber) public{\r\n        mynumber = _mynumber;\r\n    }\r\n    // function setMyStatus(string memory _mystatus) public{\r\n    //     mystatus = _mystatus;\r\n    // }\r\n\r\n    // this is the more optimal way to reduce the gas fee\r\n    // because it directly points the mystatus input field text\r\n    // and the memory method store it into the heap\r\n    // memory -> when we need to manipulate the input string\r\n    // calldata -> when there is no need of change the input string (reduce the gas fee) \r\n    function setMyStatus(string calldata _mystatus) public{\r\n        mystatus = _mystatus;\r\n    }\r\n\r\n    \r\n}",
+        "file": "dealing_with_function.sol"
+      }
+    }
   }
 }

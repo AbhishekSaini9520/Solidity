@@ -1,0 +1,98 @@
+{
+	"compiler": {
+		"version": "0.8.34+commit.80d5c536"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"name": "mynumber",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "mystatus",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_mynumber",
+						"type": "uint256"
+					}
+				],
+				"name": "setMyNumber",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "_mystatus",
+						"type": "string"
+					}
+				],
+				"name": "setMyStatus",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"dealing_with_function.sol": "MyFabouriteNumber"
+		},
+		"evmVersion": "osaka",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"dealing_with_function.sol": {
+			"keccak256": "0x10c560ac934b15be967274939ae2d77f9ddb819ce2be23c387513b262801f364",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://1b545b16d141921df29e552b3cd112f3e0f70f214a545f1231e890d353d6f292",
+				"dweb:/ipfs/QmS5npBBfxM3P26pDbRQukpN4eQ9W2aEtzaEXxVfE3hwNX"
+			]
+		}
+	},
+	"version": 1
+}
