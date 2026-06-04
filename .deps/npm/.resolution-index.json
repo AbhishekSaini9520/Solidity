@@ -14,5 +14,13 @@
         "file": "dealing_with_function.sol"
       }
     }
+  },
+  "view_pure.sol": {
+    "__sources__": {
+      "view_pure.sol": {
+        "content": "// SPDX-License-Identifier: MIT\r\npragma solidity ^0.8.26;\r\n\r\ncontract MyFabouriteNumber {\r\n    uint public mynumber = 10;\r\n\r\n    // view is used to when the function is used only for the see the value of varibles\r\n    // pure is used when the fucntion is not used to even see the value of variables\r\n    \r\n    function check() public view returns(uint){\r\n        return mynumber;\r\n    }\r\n\r\n    function sum(uint _num) public pure returns(uint){\r\n        uint total = 0;\r\n        for(uint i = 1; i<= _num; i++){\r\n            total += i;\r\n        }\r\n\r\n        return total;\r\n    }\r\n\r\n    \r\n}",
+        "file": "view_pure.sol"
+      }
+    }
   }
 }

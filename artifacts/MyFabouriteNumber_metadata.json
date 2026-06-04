@@ -7,7 +7,7 @@
 		"abi": [
 			{
 				"inputs": [],
-				"name": "mynumber",
+				"name": "check",
 				"outputs": [
 					{
 						"internalType": "uint256",
@@ -20,12 +20,12 @@
 			},
 			{
 				"inputs": [],
-				"name": "mystatus",
+				"name": "mynumber",
 				"outputs": [
 					{
-						"internalType": "string",
+						"internalType": "uint256",
 						"name": "",
-						"type": "string"
+						"type": "uint256"
 					}
 				],
 				"stateMutability": "view",
@@ -35,26 +35,19 @@
 				"inputs": [
 					{
 						"internalType": "uint256",
-						"name": "_mynumber",
+						"name": "_num",
 						"type": "uint256"
 					}
 				],
-				"name": "setMyNumber",
-				"outputs": [],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [
+				"name": "sum",
+				"outputs": [
 					{
-						"internalType": "string",
-						"name": "_mystatus",
-						"type": "string"
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
 					}
 				],
-				"name": "setMyStatus",
-				"outputs": [],
-				"stateMutability": "nonpayable",
+				"stateMutability": "pure",
 				"type": "function"
 			}
 		],
@@ -71,7 +64,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"dealing_with_function.sol": "MyFabouriteNumber"
+			"view_pure.sol": "MyFabouriteNumber"
 		},
 		"evmVersion": "osaka",
 		"libraries": {},
@@ -85,12 +78,12 @@
 		"remappings": []
 	},
 	"sources": {
-		"dealing_with_function.sol": {
-			"keccak256": "0x10c560ac934b15be967274939ae2d77f9ddb819ce2be23c387513b262801f364",
+		"view_pure.sol": {
+			"keccak256": "0x50fed5cd2c210b9eeafca0da98d7108bef2895392a178b1b9729e7bc39bf7ce2",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://1b545b16d141921df29e552b3cd112f3e0f70f214a545f1231e890d353d6f292",
-				"dweb:/ipfs/QmS5npBBfxM3P26pDbRQukpN4eQ9W2aEtzaEXxVfE3hwNX"
+				"bzz-raw://c8c28eb02b521f5a3347b8b9e3cba6786f1de72bdfc6def03b56358f06b4a4f5",
+				"dweb:/ipfs/QmUA1TDtCnYhriuz59dYcVJkWFkm5MCQ8wnugjKmsVmZCA"
 			]
 		}
 	},
