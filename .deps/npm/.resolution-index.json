@@ -1,0 +1,10 @@
+{
+  "helloworld.sol": {
+    "__sources__": {
+      "helloworld.sol": {
+        "content": "// SPDX-License-Identifier: MIT\r\npragma solidity ^0.8.26;\r\n\r\ncontract HelloWorld {\r\n    string public greet = \"Hello World!\";\r\n}",
+        "file": "helloworld.sol"
+      }
+    }
+  }
+}
