@@ -1,0 +1,90 @@
+{
+	"compiler": {
+		"version": "0.8.34+commit.80d5c536"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"inputs": [],
+				"name": "myNumber",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "owner",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_myNumber",
+						"type": "uint256"
+					}
+				],
+				"name": "setMyNumber",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"Basics/06_custom_modifier.sol": "MyFavoriteNumber"
+		},
+		"evmVersion": "osaka",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"Basics/06_custom_modifier.sol": {
+			"keccak256": "0xdea50969f917fea2a12a8451a6776f8ca53987e81470d3dc1a78a183298e04c9",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://7fd1a946f7b4ab43bf3e38f34cf17f9d250c2303a9abd0bfb8d808cbc67c0514",
+				"dweb:/ipfs/QmWQQY8EquR6XmC6whywKdzmXUqYxdtS8sqXbuoGJeFdtt"
+			]
+		}
+	},
+	"version": 1
+}

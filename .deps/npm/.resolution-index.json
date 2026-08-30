@@ -22,5 +22,61 @@
         "file": "view_pure.sol"
       }
     }
+  },
+  "Basics/01_simple_variable.sol": {
+    "__sources__": {
+      "Basics/01_simple_variable.sol": {
+        "content": "// SPDX-License-Identifier: MIT\r\n\r\npragma solidity ^0.8.20;\r\n\r\ncontract HelloWorld {\r\n    string public greeting = \"Hello, World!\";\r\n}\r\n\r\n// Task\r\n// contract MyFavoriteNumber {\r\n//     uint public myNumber = 7;\r\n// }",
+        "file": "Basics/01_simple_variable.sol"
+      }
+    }
+  },
+  "Basics/04_addingRules_with_require.sol": {
+    "__sources__": {
+      "Basics/04_addingRules_with_require.sol": {
+        "content": "// SPDX-License-Identifier: MIT\r\npragma solidity ^0.8.20;\r\n\r\ncontract LearnFunction {\r\n    string public myStatus = \"Learning Solidity\";\r\n    uint public myNumber = 10;\r\n\r\n    function setMyNumber(uint _myNumber) public {\r\n        require(_myNumber > myNumber , \"The number should be greater than current value\");\r\n        myNumber = _myNumber;\r\n    }\r\n\r\n    function getStatus() public view returns(string memory){\r\n        return myStatus;\r\n    }\r\n\r\n    function getSum(uint _myNumber) public pure returns(uint){\r\n        return 2*_myNumber;\r\n    }\r\n\r\n}\r\n",
+        "file": "Basics/04_addingRules_with_require.sol"
+      }
+    }
+  },
+  "Basics/03_view_pure.sol": {
+    "__sources__": {
+      "Basics/03_view_pure.sol": {
+        "content": "// SPDX-License-Identifier: MIT\r\npragma solidity ^0.8.20;\r\n\r\ncontract LearnFunction {\r\n    string public myStatus = \"Learning Solidity\";\r\n    uint public myNumber = 10;\r\n\r\n    // - view: Use this for a function that only reads state variables but doesn't change them.\r\n    // - pure: Use this for a function that doesn't even read the state variables. It's a pure calculation that only depends on its inputs.\r\n    function getStatus() public view returns(string memory){\r\n        return myStatus;\r\n    }\r\n\r\n    function getSum(uint _myNumber) public pure returns(uint){\r\n        return 2*_myNumber;\r\n    }\r\n\r\n}\r\n",
+        "file": "Basics/03_view_pure.sol"
+      }
+    }
+  },
+  "Basics/02_functions.sol": {
+    "__sources__": {
+      "Basics/02_functions.sol": {
+        "content": "// SPDX-License-Identifier: MIT\r\n\r\npragma solidity ^0.8.20;\r\n\r\ncontract MyFavoriteNumber {\r\n    uint public myNumber = 10;\r\n\r\n    function setMyNumber(uint _myNumber) public {\r\n        myNumber = _myNumber;\r\n    }\r\n}\r\n\r\n// Task\r\n// contract Status {\r\n//     string public myStatus = \"Learning Solidity\";\r\n\r\n//     function setMyStatus(string calldata _myStatus) public {\r\n//         myStatus = _myStatus;\r\n//     }\r\n// }",
+        "file": "Basics/02_functions.sol"
+      }
+    }
+  },
+  "Basics/05_ownership.sol": {
+    "__sources__": {
+      "Basics/05_ownership.sol": {
+        "content": "// SPDX-License-Identifier: MIT\r\n\r\npragma solidity ^0.8.20;\r\n\r\ncontract MyFavoriteNumber {\r\n    uint public myNumber = 10;\r\n    address public owner;\r\n\r\n    constructor(){\r\n        owner = msg.sender;\r\n    }\r\n\r\n    function setMyNumber(uint _myNumber) public {\r\n        require(msg.sender == owner, \"You are not the owner\");\r\n        myNumber = _myNumber;\r\n    }\r\n}",
+        "file": "Basics/05_ownership.sol"
+      }
+    }
+  },
+  "Basics/06_custom_modifier.sol": {
+    "__sources__": {
+      "Basics/06_custom_modifier.sol": {
+        "content": "// SPDX-License-Identifier: MIT\r\n\r\npragma solidity ^0.8.20;\r\n\r\ncontract MyFavoriteNumber {\r\n    uint public myNumber = 10;\r\n    address public owner;\r\n\r\n    constructor(){\r\n        owner = msg.sender;\r\n    }\r\n\r\n    modifier onlyOwner(){\r\n        require(msg.sender == owner, \"You are not the owner\");\r\n        _;\r\n    }\r\n\r\n    function setMyNumber(uint _myNumber) public onlyOwner {\r\n        myNumber = _myNumber;\r\n    }\r\n}",
+        "file": "Basics/06_custom_modifier.sol"
+      }
+    }
+  },
+  "Basics/07_payable.sol": {
+    "__sources__": {
+      "Basics/07_payable.sol": {
+        "content": "// SPDX-License-Identifier: MIT\r\npragma solidity ^0.8.20;\r\n\r\ncontract TipJar {\r\n\r\n    address public owner;\r\n\r\n    constructor(){\r\n        owner = msg.sender;\r\n    }\r\n    modifier onlyOwner(){\r\n        require(msg.sender == owner, \"You are not the owner\");\r\n        _;\r\n    }\r\n\r\n    function getBalance() public view returns (uint) {\r\n        return address(this).balance;\r\n    }\r\n\r\n    function sendTip() public payable {\r\n\r\n    }\r\n\r\n    function withdraw() public onlyOwner{\r\n        uint amount = address(this).balance;\r\n        address ownerAddress = owner;\r\n        (bool success, ) = payable(ownerAddress).call{value: amount}(\"\");\r\n        require(success,\"Transfer Failed\");\r\n    }\r\n\r\n}",
+        "file": "Basics/07_payable.sol"
+      }
+    }
   }
 }

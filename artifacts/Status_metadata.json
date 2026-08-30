@@ -7,7 +7,7 @@
 		"abi": [
 			{
 				"inputs": [],
-				"name": "greeting",
+				"name": "myStatus",
 				"outputs": [
 					{
 						"internalType": "string",
@@ -16,6 +16,19 @@
 					}
 				],
 				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "_myStatus",
+						"type": "string"
+					}
+				],
+				"name": "setMyStatus",
+				"outputs": [],
+				"stateMutability": "nonpayable",
 				"type": "function"
 			}
 		],
@@ -32,7 +45,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"Basics/01_simple_variable.sol": "HelloWorld"
+			"Basics/02_functions.sol": "Status"
 		},
 		"evmVersion": "osaka",
 		"libraries": {},
@@ -46,12 +59,12 @@
 		"remappings": []
 	},
 	"sources": {
-		"Basics/01_simple_variable.sol": {
-			"keccak256": "0x6eb5550a59dc4f7499e01a93355827e6c1147a5c46d2034a06a4b53fc602db51",
+		"Basics/02_functions.sol": {
+			"keccak256": "0x2da84a049cbc37cc10248d1e2a1feaf45073bd2f6295668b8da7545de3d18a0c",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://e49947b8841fe0d03d778de706f3c3430c52f115ab406389cdeff1472e66bc22",
-				"dweb:/ipfs/QmUVUvXCD1pRzYm8pkVxTgr9E8hM1CgAEHGJfZLuxeFSig"
+				"bzz-raw://d94e2b327f669d392b457893ed5516022bc1790f62a2f7c57d1e24429775e7b6",
+				"dweb:/ipfs/QmWwULnNhZ2DrAiZHPpnXA3kENzFmmSbg3mPnvgdPpHXTp"
 			]
 		}
 	},
