@@ -71,6 +71,14 @@
       }
     }
   },
+  "Basics/08_sodaInventoryTask.sol": {
+    "__sources__": {
+      "Basics/08_sodaInventoryTask.sol": {
+        "content": "// SPDX-License-Identifier: MIT\r\npragma solidity ^0.8.20;\r\n\r\ncontract SodaMachine {\r\n\r\n    address public owner;\r\n    uint public sodaInventory;\r\n\r\n    constructor(){\r\n        owner = msg.sender;\r\n        sodaInventory = 100;\r\n    }\r\n\r\n    modifier onlyOwner(){\r\n        require(msg.sender == owner, \"You are not the owner.\");\r\n        _;\r\n    }\r\n\r\n    // get the machine balance -> only owner\r\n    function getBalance() public view returns(uint){\r\n        // return sodaInventory;\r\n        return address(this).balance;\r\n\r\n    }\r\n\r\n    function checkSoda() public view returns(uint){\r\n        return sodaInventory;\r\n    }\r\n\r\n    // buy the soda\r\n    function buySoda() public payable{\r\n        require(msg.value == 1 ether, \"The amount exactly equals to 1 ether\");\r\n        sodaInventory = sodaInventory - 1;\r\n    }\r\n\r\n    // refill the inventory -> only owner\r\n    function refillInventory() public onlyOwner{\r\n        sodaInventory = 100;\r\n    }\r\n\r\n    // withdraw profit\r\n    function withdrawProfit() public onlyOwner{\r\n        uint amount = address(this).balance;\r\n        require(amount > 0, \"No profit\");\r\n\r\n        (bool success, ) = payable(owner).call{value: amount}(\"\");\r\n        require(success,\"Transfer failed\");\r\n    }\r\n\r\n}",
+        "file": "Basics/08_sodaInventoryTask.sol"
+      }
+    }
+  },
   "Basics/07_payable.sol": {
     "__sources__": {
       "Basics/07_payable.sol": {
@@ -79,11 +87,29 @@
       }
     }
   },
-  "Basics/08_sodaInventoryTask.sol": {
+  "Basics/09_vendingMachine.sol": {
+    "./09_IsodaPrice.sol": "Basics/09_IsodaPrice.sol",
     "__sources__": {
-      "Basics/08_sodaInventoryTask.sol": {
-        "content": "// SPDX-License-Identifier: MIT\r\npragma solidity ^0.8.20;\r\n\r\ncontract SodaMachine {\r\n\r\n    address public owner;\r\n    uint public sodaInventory;\r\n\r\n    constructor(){\r\n        owner = msg.sender;\r\n        sodaInventory = 100;\r\n    }\r\n\r\n    modifier onlyOwner(){\r\n        require(msg.sender == owner, \"You are not the owner.\");\r\n        _;\r\n    }\r\n\r\n    // get the machine balance -> only owner\r\n    function getBalance() public view returns(uint){\r\n        // return sodaInventory;\r\n        return address(this).balance;\r\n\r\n    }\r\n\r\n    function checkSoda() public view returns(uint){\r\n        return sodaInventory;\r\n    }\r\n\r\n    // buy the soda\r\n    function buySoda() public payable{\r\n        require(msg.value == 1 ether, \"The amount exactly equals to 1 ether\");\r\n        sodaInventory = sodaInventory - 1;\r\n    }\r\n\r\n    // refill the inventory -> only owner\r\n    function refillInventory() public onlyOwner{\r\n        sodaInventory = 100;\r\n    }\r\n\r\n    // withdraw profit\r\n    function withdrawProfit() public onlyOwner{\r\n        uint amount = address(this).balance;\r\n        require(amount > 0, \"No profit\");\r\n\r\n        (bool success, ) = payable(owner).call{value: amount}(\"\");\r\n        require(success,\"Transfer failed\");\r\n    }\r\n\r\n}",
-        "file": "Basics/08_sodaInventoryTask.sol"
+      "Basics/09_vendingMachine.sol": {
+        "content": "// SPDX-License-Identifier: MIT\r\npragma solidity ^0.8.20;\r\n\r\nimport \"./09_IsodaPrice.sol\";\r\n\r\ncontract vendingMachine{\r\n   \r\n   uint soda;\r\n   address public owner;\r\n   IsodaPrice public priceOracle;\r\n\r\n\r\n   constructor(address _addressOracle){\r\n        soda = 100;\r\n        owner = msg.sender;\r\n        priceOracle = IsodaPrice(_addressOracle);\r\n   }\r\n\r\n   function getBalance() public view returns(uint){\r\n     \r\n     return address(this).balance;\r\n   }\r\n\r\n   modifier onlyOwner(){\r\n    require(msg.sender == owner, \"You are not allowed\");\r\n    _;\r\n   }\r\n\r\n  function buySoda() public payable {\r\n    uint _price = priceOracle.getPrice();\r\n    require(msg.value == _price , \"You must pay 0.01 ether\");\r\n    require(soda > 0, \"Sorry, out of stock!\");\r\n    \r\n    soda = soda - 1;\r\n}\r\n\r\n   function addStock(uint _soda) public onlyOwner{\r\n    soda = soda + _soda;\r\n   }\r\n   \r\n   function withdraw() public onlyOwner{\r\n    \r\n    (bool success, ) = payable(msg.sender).call{value: address(this).balance}(\"\");\r\n    require(success,\"Transfer Failed\");\r\n   }\r\n\r\n}\r\n\r\n",
+        "file": "Basics/09_vendingMachine.sol"
+      },
+      "Basics/09_IsodaPrice.sol": {
+        "content": "// SPDX-License-Identifier: MIT\r\npragma solidity ^0.8.20;\r\n\r\ninterface IsodaPrice {\r\n    function getPrice() external view returns(uint);\r\n}",
+        "file": "Basics/09_IsodaPrice.sol"
+      }
+    }
+  },
+  "Basics/09_sodaVendor.sol": {
+    "./09_IsodaPrice.sol": "Basics/09_IsodaPrice.sol",
+    "__sources__": {
+      "Basics/09_sodaVendor.sol": {
+        "content": "// SPDX-License-Identifier: MIT\r\npragma solidity ^0.8.20;\r\n\r\nimport \"./09_IsodaPrice.sol\";\r\n\r\ncontract sodaVendor is IsodaPrice{\r\n    address public owner;\r\n    uint public  price;\r\n\r\n\r\n    modifier onlyOwner{\r\n        require(msg.sender==owner,\"You are not the owner\");\r\n        _;\r\n    }\r\n\r\n    constructor(){\r\n        owner = msg.sender;\r\n        price = 1 ether;\r\n    }\r\n\r\n    function getPrice() external view returns(uint) {\r\n        return price;\r\n    }\r\n\r\n    function setPrice(uint _price) public onlyOwner {\r\n        price = _price;\r\n    }\r\n}",
+        "file": "Basics/09_sodaVendor.sol"
+      },
+      "Basics/09_IsodaPrice.sol": {
+        "content": "// SPDX-License-Identifier: MIT\r\npragma solidity ^0.8.20;\r\n\r\ninterface IsodaPrice {\r\n    function getPrice() external view returns(uint);\r\n}",
+        "file": "Basics/09_IsodaPrice.sol"
       }
     }
   }

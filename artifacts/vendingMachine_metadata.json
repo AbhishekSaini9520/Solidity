@@ -1,0 +1,131 @@
+{
+	"compiler": {
+		"version": "0.8.34+commit.80d5c536"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_addressOracle",
+						"type": "address"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_soda",
+						"type": "uint256"
+					}
+				],
+				"name": "addStock",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "buySoda",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getBalance",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "owner",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "priceOracle",
+				"outputs": [
+					{
+						"internalType": "contract IsodaPrice",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "withdraw",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"Basics/09_vendingMachine.sol": "vendingMachine"
+		},
+		"evmVersion": "osaka",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"Basics/09_IsodaPrice.sol": {
+			"keccak256": "0x194695b94213623ce2c16dfbc075a28148f182b85c693faf672d4b0f5a8cd997",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://0c0b38fce7851f3541f6dc3fa190dfb7d92d8422719978f3823cf49738df2d42",
+				"dweb:/ipfs/QmTiLfTHFapg2rU4BzC1kVgSTNpv1FT1JKV581HSjmBt9D"
+			]
+		},
+		"Basics/09_vendingMachine.sol": {
+			"keccak256": "0x67870c304bcd12b86353157853f881c3df464833b55bd6c99098af4abee9ea7c",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://d4e5e69f95c50e7eaeb98346a772368bbb11746a45c4de0ca88929f6d862cf83",
+				"dweb:/ipfs/QmXF1MHLYGtaLv5J7iscTKSiZzM2MsuvwwnW3FuG2bLDgR"
+			]
+		}
+	},
+	"version": 1
+}
